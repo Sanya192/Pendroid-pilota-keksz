@@ -15,8 +15,14 @@ public class Target : MonoBehaviour {
 	}
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.name.IndexOf("Ball")>=0)
-            Destroy(gameObject);
-
+        if (coll.gameObject.tag == "Ball") {
+            GetComponent<ParticleSystem>().Play();
+            StartCoroutine(Example(gameObject));
+        }  
+    }
+    IEnumerator Example(GameObject gameObject)
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
     }
 }

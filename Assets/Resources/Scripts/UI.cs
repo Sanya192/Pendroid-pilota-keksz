@@ -17,7 +17,12 @@ public class UI : MonoBehaviour {
 		
 	}
     void GravityChange(){
-        Physics.gravity = new Vector3(0,-9.8F*gravity.value,0);
-        Debug.Log(Physics.gravity);
+        var ball = GameObject.FindGameObjectsWithTag("Ball");
+        Physics2D.gravity = new Vector2(0,-9.8F*gravity.value);
+        Debug.Log(Physics2D.gravity);
+        for (int i = 0; i < ball.Length; i++) {
+             ball[i].GetComponent<Rigidbody2D>().Sleep();
+            
+        }
     }
 }

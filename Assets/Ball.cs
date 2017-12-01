@@ -24,14 +24,12 @@ public class Ball : MonoBehaviour {
     public void DisablePhysics() {
         rigidBody.Sleep();
         circleCollider.enabled = false;
-
         physicsEnabled = false;
     }
 
     public void EnablePhysics() {
         rigidBody.WakeUp();
         circleCollider.enabled = true;
-
         physicsEnabled = true;
     }
 

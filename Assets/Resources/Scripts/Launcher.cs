@@ -47,9 +47,10 @@ public class Launcher : MonoBehaviour {
         balls = new Ball[ballTypes.Length];
         for (int i = 0; i < ballTypes.Length; i++) {
             balls[i] = Instantiate(ballPrefab, transform).GetComponent<Ball>();
-
+            balls[i].tag = "Ball";
             balls[i].DisablePhysics();
             balls[i].name = "Ball " + i;
+            
 
             // move it a bit back
             if (i > 0) {
