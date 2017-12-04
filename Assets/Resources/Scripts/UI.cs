@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,23 +8,21 @@ public class UI : MonoBehaviour {
 
     //static Slider gravity;
 
-    public Slider gravity;
-    public Slider wind;
+    static Slider gravitySlider;
+    static Slider windSlider;
 	// Use this for initialization
 	void Start () {
-        //gravity = FindObjectOfType<Slider>();
+        var sliders = FindObjectsOfType<Slider>();
+        gravitySlider = sliders.First(P => P.name == "GravitySlider");
+        windSlider = sliders.First(P => P.name == "WindSlider");
 
-        gravity.onValueChanged.AddListener(delegate { GravityChange(); });
-        wind.onValueChanged.AddListener(delegate { WindChange(); });
+        gravitySlider.onValueChanged.AddListener(delegate { GravityChange(); });
+        windSlider.onValueChanged.AddListener(delegate { WindChange(); });
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    void GravityChange(){
+
+    void GravityChange() {
         var ball = GameObject.FindGameObjectsWithTag("Ball");
-        Physics2D.gravity = new Vector2(0,-9.8F*gravity.value);
+        Physics2D.gravity = new Vector2(0,-9.8F*gravitySlider.value);
         Debug.Log(Physics2D.gravity);
         for (int i = 0; i < ball.Length; i++) {
              ball[i].GetComponent<Rigidbody2D>().Sleep();
@@ -33,6 +32,6 @@ public class UI : MonoBehaviour {
 
     void WindChange() {
         var windObject = GameObject.Find("WindSimulator").GetComponent<Wind>();
-        windObject.WindSpeed = wind.value;
+        windObject.WindSpeed = windSlider.value;
     }
 }
