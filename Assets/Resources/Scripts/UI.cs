@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour {
 
-    static Slider gravity;
+    //static Slider gravity;
+
+    public Slider gravity;
+    public Slider wind;
 	// Use this for initialization
 	void Start () {
-        gravity = FindObjectOfType<Slider>();
+        //gravity = FindObjectOfType<Slider>();
+
         gravity.onValueChanged.AddListener(delegate { GravityChange(); });
+        wind.onValueChanged.AddListener(delegate { WindChange(); });
     }
 	
 	// Update is called once per frame
@@ -24,5 +29,10 @@ public class UI : MonoBehaviour {
              ball[i].GetComponent<Rigidbody2D>().Sleep();
             
         }
+    }
+
+    void WindChange() {
+        var windObject = GameObject.Find("WindSimulator").GetComponent<Wind>();
+        windObject.WindSpeed = wind.value;
     }
 }
