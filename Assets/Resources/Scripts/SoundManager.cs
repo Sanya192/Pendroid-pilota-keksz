@@ -8,6 +8,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
 
     public AudioClip BallShoot;
+    public AudioClip Explosion;
 
     public static SoundManager Instance;
 

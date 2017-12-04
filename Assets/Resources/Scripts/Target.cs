@@ -18,6 +18,7 @@ public class Target : MonoBehaviour {
         if (coll.gameObject.tag == "Ball") {
             GetComponent<ParticleSystem>().Play();
             StartCoroutine(Example(gameObject));
+            SoundManager.Instance.PlayOneShot(SoundManager.Instance.Explosion);
         }  
     }
     IEnumerator Example(GameObject gameObject)
