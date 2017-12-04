@@ -39,5 +39,6 @@ public class Ball : MonoBehaviour {
         }
 
         rigidBody.AddForce(force, ForceMode2D.Impulse);
+        SoundManager.Instance.PlayOneShot(SoundManager.Instance.BallShoot);
     }
 }
