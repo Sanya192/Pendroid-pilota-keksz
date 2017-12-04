@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,8 +10,8 @@ public class UI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         var sliders= FindObjectsOfType<Slider>();
-        gravity = sliders[0];
-        windspeed = sliders[1];
+        gravity = sliders.First(P=>P.name=="Gravity");
+        windspeed = sliders.First(P => P.name == "WindSpeed");
         gravity.onValueChanged.AddListener(delegate { GravityChange(); });
     }
 	
