@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour {
 
     static Slider gravity;
-	// Use this for initialization
-	void Start () {
-        gravity = FindObjectOfType<Slider>();
+    static Slider windspeed;
+    // Use this for initialization
+    void Start () {
+        var sliders= FindObjectsOfType<Slider>();
+        gravity = sliders[0];
+        windspeed = sliders[1];
         gravity.onValueChanged.AddListener(delegate { GravityChange(); });
     }
 	
