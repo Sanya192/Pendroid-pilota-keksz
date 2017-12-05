@@ -10,16 +10,23 @@ public class Ball : MonoBehaviour {
     public SpriteRenderer spriteRenderer;
 
     private bool physicsEnabled = true;
-    
+
     public float Radius {
         get { return circleCollider.radius; }
     }
-    
-	void Awake () {
+
+    void Awake() {
         rigidBody = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-	}
+    }
+
+    /// <summary>
+    /// If the ball became invisible, destroy it.
+    /// </summary>
+    void OnBecameInvisible() {
+        Destroy(gameObject);
+    }
 
     public void DisablePhysics() {
         rigidBody.Sleep();
