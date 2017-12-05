@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour {
 
-    private bool hasUsedParachute = false;
-
     static Slider gravitySlider;
     static Slider windSlider;
 
@@ -43,9 +41,9 @@ public class UI : MonoBehaviour {
 
     void UseParachute() {
         var launcher = GameObject.Find("Launcher").GetComponent<Launcher>();
-        if (launcher.FlyingBall != null && !hasUsedParachute) {
+        if (launcher.FlyingBall != null) {
             launcher.FlyingBall.UseParachute();
-            hasUsedParachute = true;
+            parachuteBtn.enabled = false;
             SoundManager.Instance
                 .PlayOneShot(SoundManager.Instance.OpenParachute);
         }
