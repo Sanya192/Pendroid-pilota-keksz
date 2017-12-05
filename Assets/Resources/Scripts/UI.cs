@@ -46,6 +46,8 @@ public class UI : MonoBehaviour {
         if (launcher.FlyingBall != null && !hasUsedParachute) {
             launcher.FlyingBall.UseParachute();
             hasUsedParachute = true;
+            SoundManager.Instance
+                .PlayOneShot(SoundManager.Instance.OpenParachute);
         }
 
     }

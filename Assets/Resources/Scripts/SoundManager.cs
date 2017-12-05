@@ -9,23 +9,24 @@ public class SoundManager : MonoBehaviour {
 
     public AudioClip BallShoot;
     public AudioClip Explosion;
+    public AudioClip OpenParachute;
 
     public static SoundManager Instance;
 
     private AudioSource audioSource;
 
-	// Use this for initialization
-	void Awake () { 
+    // Use this for initialization
+    void Awake() {
         if (Instance == null)
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
 
         audioSource = GetComponent<AudioSource>();
-	}
+    }
 
     public void PlayOneShot(AudioClip clip) {
         audioSource.PlayOneShot(clip);
     }
-	
+
 }
