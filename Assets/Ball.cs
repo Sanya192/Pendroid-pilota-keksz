@@ -19,6 +19,7 @@ public class Ball : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rigidBody.drag = 0.5f;
     }
 
     /// <summary>
@@ -47,5 +48,9 @@ public class Ball : MonoBehaviour {
 
         rigidBody.AddForce(force, ForceMode2D.Impulse);
         SoundManager.Instance.PlayOneShot(SoundManager.Instance.BallShoot);
+    }
+
+    public void UseParachute() {
+        rigidBody.drag = 20;
     }
 }

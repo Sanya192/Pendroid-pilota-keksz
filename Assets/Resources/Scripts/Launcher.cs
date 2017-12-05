@@ -32,6 +32,15 @@ public class Launcher : MonoBehaviour {
         get { return balls[currBallIndex]; }
     }
 
+    public Ball FlyingBall {
+        get {
+            if (currBallIndex > 0)
+                return balls[currBallIndex - 1];
+            else
+                return null;
+        }
+    }
+
     [SerializeField]
     private float maxLaunchSpeed = 100f;
 
@@ -50,7 +59,7 @@ public class Launcher : MonoBehaviour {
             balls[i].tag = "Ball";
             balls[i].DisablePhysics();
             balls[i].name = "Ball " + i;
-            
+
 
             // move it a bit back
             if (i > 0) {
@@ -66,7 +75,7 @@ public class Launcher : MonoBehaviour {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, (Camera.main.orthographicSize * 2) * maxLaunchRadiusPercent);
     }
-    
+
     private Vector2 touchEndPos = new Vector3();
     private bool isDragging = false;
     private void Update() {
@@ -91,7 +100,7 @@ public class Launcher : MonoBehaviour {
             Vector2 mouseDelta = mousePosition - launcherScreenPos;
 
             float dist = mouseDelta.magnitude;
-            
+
             // we are too far away from the launcher -> shrink it to the max
             if (dist > maxLaunchRadius) {
                 touchEndPos = launcherScreenPos + mouseDelta * (maxLaunchRadius / dist);
@@ -125,7 +134,7 @@ public class Launcher : MonoBehaviour {
     private void LaunchCurrentBall(Vector2 force) {
         // launch ball
         CurrBall.Launch(force);
-        
+
         currBallIndex++;
         // out of balls
         if (currBallIndex >= balls.Length) {
