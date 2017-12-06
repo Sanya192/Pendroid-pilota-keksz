@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 198793771641332478}
   - component: {fileID: 199564470660440516}
   m_Layer: 0
-  m_Name: "Pattog\xF3s Enemy"
+  m_Name: DONT HIT HIM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

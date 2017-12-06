@@ -11,10 +11,6 @@ public class LoadMenu : MonoBehaviour {
     }
 
     void LoadMenuScene() {
-<<<<<<< HEAD
         SceneManager.LoadScene("menu");
-=======
-        SceneManager.LoadScene("Game");
->>>>>>> Sanyi-Homokozója
     }
 }
