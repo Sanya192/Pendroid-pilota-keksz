@@ -7,10 +7,10 @@ public class LoadMenu : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        Invoke("LoadMenuScene", 1f);
+        Invoke("LoadMenuScene", 2f);
     }
 
     void LoadMenuScene() {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("menu");
     }
 }
