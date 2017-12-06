@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadMenu : MonoBehaviour {
 
@@ -10,6 +11,6 @@ public class LoadMenu : MonoBehaviour {
     }
 
     void LoadMenuScene() {
-        Application.LoadLevel("Game");
+        SceneManager.LoadScene("Game");
     }
 }
