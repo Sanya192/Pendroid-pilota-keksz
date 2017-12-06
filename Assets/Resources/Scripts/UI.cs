@@ -8,23 +8,22 @@ public class UI : MonoBehaviour {
 
     static Slider gravitySlider;
     static Slider windSlider;
-
     static Button parachuteBtn;
     // Use this for initialization
     void Start() {
         var sliders = FindObjectsOfType<Slider>();
         gravitySlider = sliders.First(P => P.name == "GravitySlider");
         windSlider = sliders.First(P => P.name == "WindSlider");
-
         gravitySlider.onValueChanged.AddListener(delegate { GravityChange(); });
         windSlider.onValueChanged.AddListener(delegate { WindChange(); });
-
         var btns = FindObjectsOfType<Button>();
         parachuteBtn = btns.First(p => p.name == "ParachuteButton");
-
         parachuteBtn.onClick.AddListener(delegate { UseParachute(); });
+      //  Invoke("InvertAllMaterialColors", 0.01f);
     }
-
+    void Update()
+    {
+    }
     void GravityChange() {
         var ball = GameObject.FindGameObjectsWithTag("Ball");
         Physics2D.gravity = new Vector2(0, -9.8F * gravitySlider.value);
@@ -32,6 +31,7 @@ public class UI : MonoBehaviour {
         for (int i = 0; i < ball.Length; i++) {
             ball[i].GetComponent<Rigidbody2D>().Sleep();
         }
+        parachuteBtn.onClick.AddListener(delegate { UseParachute(); });
     }
 
     void WindChange() {
@@ -47,6 +47,18 @@ public class UI : MonoBehaviour {
             SoundManager.Instance
                 .PlayOneShot(SoundManager.Instance.OpenParachute);
         }
-
+    }
+    Color InvertColor(Color color){
+    return new Color(1.0f-color.r, 1.0f-color.g, 1.0f-color.b);
+    }
+    void InvertAllMaterialColors()
+    {
+        var renderers = FindObjectsOfType<Renderer>();
+        foreach (var render in renderers) {
+            Debug.Log(render);
+            if (render.material.HasProperty("_Color")) {
+                render.material.color = InvertColor(render.material.color);
+            }
+        }
     }
 }

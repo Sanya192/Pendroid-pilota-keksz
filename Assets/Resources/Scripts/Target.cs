@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 [RequireComponent (typeof(BoxCollider2D))]
 public class Target : MonoBehaviour {
 
@@ -24,6 +25,8 @@ public class Target : MonoBehaviour {
     IEnumerator Example(GameObject gameObject)
     {
         yield return new WaitForSeconds(1.5f);
+        if (gameObject.name == "DONT HIT HIM")
+            SceneManager.LoadScene("game_over");
         Destroy(gameObject);
     }
 }
