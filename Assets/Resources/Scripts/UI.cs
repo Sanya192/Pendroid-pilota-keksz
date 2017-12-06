@@ -18,7 +18,8 @@ public class UI : MonoBehaviour {
         windSlider.onValueChanged.AddListener(delegate { WindChange(); });
         var btns = FindObjectsOfType<Button>();
         parachuteBtn = btns.First(p => p.name == "ParachuteButton");
-        Invoke("InvertAllMaterialColors", 0.01f);
+        parachuteBtn.onClick.AddListener(delegate { UseParachute(); });
+      //  Invoke("InvertAllMaterialColors", 0.01f);
     }
     void Update()
     {
