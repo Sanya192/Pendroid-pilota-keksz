@@ -10,16 +10,24 @@ public class Ball : MonoBehaviour {
     public SpriteRenderer spriteRenderer;
 
     private bool physicsEnabled = true;
-    
+
     public float Radius {
         get { return circleCollider.radius; }
     }
-    
-	void Awake () {
+
+    void Awake() {
         rigidBody = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-	}
+        rigidBody.drag = 0.5f;
+    }
+
+    /// <summary>
+    /// If the ball became invisible, destroy it.
+    /// </summary>
+    void OnBecameInvisible() {
+        Destroy(gameObject);
+    }
 
     public void DisablePhysics() {
         rigidBody.Sleep();
@@ -40,5 +48,18 @@ public class Ball : MonoBehaviour {
 
         rigidBody.AddForce(force, ForceMode2D.Impulse);
         SoundManager.Instance.PlayOneShot(SoundManager.Instance.BallShoot);
+    }
+
+    /// <summary>
+    /// Sent when an incoming collider makes contact with this object's
+    /// collider (2D physics only).
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionEnter2D(Collision2D other) {
+        SoundManager.Instance.PlayOneShot(SoundManager.Instance.CollisionSound);
+    }
+
+    public void UseParachute() {
+        rigidBody.drag = 20;
     }
 }
