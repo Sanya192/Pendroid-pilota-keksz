@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour {
     public AudioClip BallShoot;
     public AudioClip Explosion;
     public AudioClip OpenParachute;
+    public AudioClip CollisionSound;
 
     public static SoundManager Instance;
 

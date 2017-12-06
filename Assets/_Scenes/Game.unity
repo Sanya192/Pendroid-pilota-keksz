@@ -4947,6 +4947,7 @@ MonoBehaviour:
   BallShoot: {fileID: 8300000, guid: 1834034125b9e5a4183c6abe30b8a58b, type: 3}
   Explosion: {fileID: 8300000, guid: c84002eb1ecc3734a99e946fbf211843, type: 3}
   OpenParachute: {fileID: 8300000, guid: edf548c279ec7e146b3152fa6e6e6198, type: 3}
+  CollisionSound: {fileID: 8300000, guid: 8b723486f50bd39409d86df030405bf4, type: 3}
 --- !u!82 &1803824623
 AudioSource:
   m_ObjectHideFlags: 0
