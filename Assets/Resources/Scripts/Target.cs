@@ -36,7 +36,7 @@ public class Target : MonoBehaviour {
 
         Destroy(gameObject);
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !gameover) {
-            SceneManager.LoadScene("menu");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
     }
 }

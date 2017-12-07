@@ -10,6 +10,7 @@ public class UI : MonoBehaviour {
     static Slider gravitySlider;
     static Slider windSlider;
     static Button parachuteBtn;
+    static GameObject Pause;
     // Use this for initialization
     void Start() {
         var sliders = FindObjectsOfType<Slider>();
@@ -20,11 +21,14 @@ public class UI : MonoBehaviour {
         var btns = FindObjectsOfType<Button>();
         parachuteBtn = btns.First(p => p.name == "ParachuteButton");
         parachuteBtn.onClick.AddListener(delegate { UseParachute(); });
-        
+        Pause = GameObject.Find("Pause");
+        Pause.SetActive(false);
         //  Invoke("InvertAllMaterialColors", 0.01f);
     }
     void Update(){
-        
+        if (Input.GetButtonDown("Pause")){
+            TriggerPause();
+        }
     }
     void GravityChange() {
         var ball = GameObject.FindGameObjectsWithTag("Ball");
@@ -61,7 +65,24 @@ public class UI : MonoBehaviour {
             }
         }
     }
-    void TriggerGameOver(){
+    public  void TriggerGameOver(){
         SceneManager.LoadScene("game_over");
+    }
+    public  void ToMainMenu(){
+        SceneManager.LoadScene("menu");
+    }
+   public  void ToEndGame(){
+        Application.Quit();
+    }
+    public void TriggerPause(){
+
+        if (Time.timeScale == 1) {
+            Pause.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else {
+            Pause.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 }
