@@ -8,8 +8,8 @@ public class Ball : MonoBehaviour {
     private Rigidbody2D rigidBody;
     private CircleCollider2D circleCollider;
     public SpriteRenderer spriteRenderer;
-
-    private bool physicsEnabled = true;
+    public bool last;
+    public bool physicsEnabled = true;
 
     public float Radius {
         get { return circleCollider.radius; }

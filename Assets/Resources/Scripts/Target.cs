@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.SceneManagement;
 [RequireComponent (typeof(BoxCollider2D))]
 public class Target : MonoBehaviour {
 
+    public static bool gameover = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,9 +26,17 @@ public class Target : MonoBehaviour {
     }
     IEnumerator Example(GameObject gameObject)
     {
+        if (gameObject.tag == "Ally") {
+            Debug.Log("ANYÁD");
+           gameover = true;
+        }
         yield return new WaitForSeconds(1.5f);
-        if (gameObject.name == "DONT HIT HIM")
+        if (gameObject.tag == "Ally")
             SceneManager.LoadScene("game_over");
+
         Destroy(gameObject);
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !gameover) {
+            SceneManager.LoadScene("menu");
+        }
     }
 }
