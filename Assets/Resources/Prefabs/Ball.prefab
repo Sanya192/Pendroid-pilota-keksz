@@ -90,6 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212412387686617692}
+  parachutePrefab: {fileID: 1356898319364330, guid: f06031aa7021a6c47a92652cfabf02bc,
+    type: 2}
   last: 0
   physicsEnabled: 1
 --- !u!212 &212412387686617692
