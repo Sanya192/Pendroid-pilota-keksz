@@ -11,8 +11,8 @@ public class Target : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+         victory = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
