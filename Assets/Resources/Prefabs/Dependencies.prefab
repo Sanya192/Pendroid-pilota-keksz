@@ -1917,7 +1917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57224e53ca630cc48abd94bca5f326e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WindSpeed: 10
+  WindSpeed: 0
 --- !u!114 &114867003167169956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2093,7 +2093,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
