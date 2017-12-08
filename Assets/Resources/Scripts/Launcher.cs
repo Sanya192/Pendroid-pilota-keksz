@@ -66,7 +66,7 @@ public class Launcher : MonoBehaviour {
                 balls[i].transform.position = balls[i - 1].transform.position - new Vector3(balls[i - 1].Radius * 2, 0, 0);
             }
         }
-        balls[balls.Length-1].last = true;
+        balls[balls.Length - 1].last = true;
         maxLaunchRadius = Camera.main.pixelWidth * maxLaunchRadiusPercent;
     }
 
