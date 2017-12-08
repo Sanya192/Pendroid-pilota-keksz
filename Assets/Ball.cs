@@ -49,13 +49,6 @@ public class Ball : MonoBehaviour {
 
     }
 
-    /// <summary>
-    /// If the ball became invisible, destroy it.
-    /// </summary>
-    void OnBecameInvisible() {
-        Destroy(gameObject);
-    }
-
     public void DisablePhysics() {
         rigidBody.Sleep();
         circleCollider.enabled = false;
