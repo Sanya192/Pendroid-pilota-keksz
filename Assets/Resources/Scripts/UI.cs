@@ -1,5 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+    ======================================================================================
+    A játék Unity-ben készült (2017.2.0f3)
+
+    Forráskódként csak egy "könnyű" verziót mellékeltünk ezért az első indítás hosszú lehet.
+
+    Megvalósított funckiók:
+        állítható gravitáció
+        szél
+        speciális effektek (az ellenfelek robbanásakor)
+        több terep és pálya
+        többféle célpont
+        
+        állítható a szél sebessége
+        menürendszer
+        zene
+        hangok
+        felhők, amelyek reagálnak a szélre
+        pattogás a földön
+        ejtőernyő segítség (pályánként egyszer használható fel)
+        mindegyik pálya kijátszható
+    ======================================================================================
+ */
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,25 +1,4 @@
-﻿/*
-    ==================================================================
-    A játék Unity-ben készült (2017.2.0f3)
-    
-    Megvalósított funckiók:
-        állítható gravitáció
-        szél
-        speciális effektek (az ellenfelek robbanásakor)
-        több terep és pálya
-        többféle célpont
-        
-        állítható a szél sebessége
-        menürendszer
-        zene
-        hangok
-        felhők, amelyek reagálnak a szélre
-        pattogás a földön
-        ejtőernyő segítség (pályánként egyszer használható fel)
-        mindegyik pálya kijátszható.
-    =================================================================
- */
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
