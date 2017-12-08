@@ -15,8 +15,8 @@ public class CloudSpawner : MonoBehaviour {
     }
 
     private void Spawn() {
-        float x = gameObject.transform.position.x + Random.Range(-1, 1);
-        float y = gameObject.transform.position.y + Random.Range(-1, 1);
+        float x = gameObject.transform.position.x + Random.Range(-2, 2);
+        float y = gameObject.transform.position.y + Random.Range(-2, 2);
         Instantiate(cloudPrefab, new Vector3(x, y, z), Quaternion.identity);
     }
 }

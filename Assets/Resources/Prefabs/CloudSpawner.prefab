@@ -54,5 +54,5 @@ MonoBehaviour:
   cloudPrefab: {fileID: 1656150100834112, guid: 354e4c1f714890d4b812a47259649a6c,
     type: 2}
   waitBeforaStart: 2
-  repeatTime: 5
+  repeatTime: 7
   z: 0
