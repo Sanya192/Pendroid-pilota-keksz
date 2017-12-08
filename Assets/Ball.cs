@@ -1,5 +1,7 @@
 ﻿/*
     ==================================================================
+    A játék Unity-ben készült (2017.2.0f3)
+    
     Megvalósított funckiók:
         állítható gravitáció
         szél
