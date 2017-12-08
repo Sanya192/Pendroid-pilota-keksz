@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/Menu/game_over.unity
     guid: 9bd35269870b29b4698f80b31e805060
   - enabled: 1
+    path: Assets/_Scenes/levels/level0.unity
+    guid: 98be3c9f19b0b4f41b0052f1ed685f53
+  - enabled: 1
     path: Assets/_Scenes/levels/level1.unity
     guid: ca8807238e4945b4a8dd08017aa3929a
   - enabled: 1
@@ -32,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/levels/level4.unity
     guid: bfa6d97f0f0a6c143ac10a18bd17dff1
+  - enabled: 1
+    path: Assets/_Scenes/levels/endgame.unity
+    guid: 091e55b65967de649b219de4b111f0ac
