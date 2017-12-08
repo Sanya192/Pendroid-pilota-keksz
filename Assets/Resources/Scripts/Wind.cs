@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Wind : MonoBehaviour {
 
-    [Tooltip("WindSpeed between 0 and 250 (0 means no wind)")]
+    [Tooltip("WindSpeed between 10 and 100 (0 means no wind)")]
     [Range(10f, 100f)]
     public float WindSpeed = 10f;
 
