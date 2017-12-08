@@ -122,7 +122,48 @@ public class Launcher : MonoBehaviour {
         }
 #endif
 #if UNITY_ANDROID
+        if (Input.touchCount > 0) { 
+            Touch firstTouch = Input.GetTouch(0);
+            Vector2 touchPosition = firstTouch.position;
 
+            // only start pulling if the ball was touched
+            if (firstTouch.phase == TouchPhase.Began) {
+                Vector3 mouseScreePos = Camera.main.ScreenToWorldPoint(touchPosition);
+                mouseScreePos.z = 0;
+
+                // the ball was touched
+                if ((CurrBall.transform.position - mouseScreePos).magnitude <= CurrBall.Radius) {
+                    isDragging = true;
+                }
+            }
+
+            if (firstTouch.phase == TouchPhase.Moved && isDragging) {
+                // get how much we moved from launcher on screen
+                Vector2 mouseDelta = touchPosition - launcherScreenPos;
+
+                float dist = mouseDelta.magnitude;
+
+                // we are too far away from the launcher -> shrink it to the max
+                if (dist > maxLaunchRadius) {
+                    touchEndPos = launcherScreenPos + mouseDelta * (maxLaunchRadius / dist);
+                } else {
+                    touchEndPos = touchPosition;
+                }
+            }
+
+            // launch the ball
+            if (firstTouch.phase == TouchPhase.Ended && isDragging) {
+                // in which way
+                Vector3 launchVector = launcherScreenPos - touchEndPos;
+                // whith what power
+                float launchPower = launchVector.magnitude / maxLaunchRadius * maxLaunchSpeed;
+
+                LaunchCurrentBall(launchVector.normalized * launchPower);
+
+                // stop the launching process
+                isDragging = false;
+            }
+        }
 #endif
     }
 

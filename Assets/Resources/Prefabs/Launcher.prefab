@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351710208620236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.35, y: 0, z: 0}
+  m_LocalPosition: {x: -6.96, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,8 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 1996301077571486, guid: cd46b9128cc170142a8a0ca18c136ee3, type: 2}
   ballTypes:
-  - {fileID: 11400000, guid: 78297fe43d27a954c97a23c7a2ec82c5, type: 2}
-  - {fileID: 11400000, guid: 78297fe43d27a954c97a23c7a2ec82c5, type: 2}
-  - {fileID: 11400000, guid: 78297fe43d27a954c97a23c7a2ec82c5, type: 2}
+  - {fileID: 11400000, guid: 83ec9fae57ff54440add8ba3787602ac, type: 2}
+  - {fileID: 11400000, guid: 83ec9fae57ff54440add8ba3787602ac, type: 2}
+  - {fileID: 11400000, guid: 83ec9fae57ff54440add8ba3787602ac, type: 2}
   maxLaunchSpeed: 10
   maxLaunchRadiusPercent: 0.1
