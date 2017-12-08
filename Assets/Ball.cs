@@ -1,4 +1,5 @@
 ﻿/*
+    ==================================================================
     Megvalósított funckiók:
         állítható gravitáció
         szél
@@ -13,6 +14,7 @@
         felhők, amelyek reagálnak a szélre
         pattogás a földön
         ejtőernyő segítség (pályánként egyszer használható fel)
+    =================================================================
  */
 using UnityEngine;
 
@@ -45,13 +47,6 @@ public class Ball : MonoBehaviour {
     /// </summary>
     void Update() {
 
-    }
-
-    /// <summary>
-    /// If the ball became invisible, destroy it.
-    /// </summary>
-    void OnBecameInvisible() {
-        Destroy(gameObject);
     }
 
     public void DisablePhysics() {

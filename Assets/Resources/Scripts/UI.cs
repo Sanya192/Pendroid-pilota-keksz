@@ -35,7 +35,6 @@ public class UI : MonoBehaviour {
     void GravityChange() {
         var ball = GameObject.FindGameObjectsWithTag("Ball");
         Physics2D.gravity = new Vector2(0, -9.8F * gravitySlider.value);
-        Debug.Log(Physics2D.gravity);
         for (int i = 0; i < ball.Length; i++) {
             if(!ball[i].GetComponent<Ball>().physicsEnabled)
             ball[i].GetComponent<Rigidbody2D>().Sleep();
@@ -61,7 +60,6 @@ public class UI : MonoBehaviour {
     void InvertAllMaterialColors(){
         var renderers = FindObjectsOfType<Renderer>();
         foreach (var render in renderers) {
-            Debug.Log(render);
             if (render.material.HasProperty("_Color")) {
                 render.material.color = InvertColor(render.material.color);
             }

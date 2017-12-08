@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 198793771641332478}
   - component: {fileID: 199564470660440516}
   - component: {fileID: 61596360369840818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DONT HIT HIM
   m_TagString: Ally
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2059487720
+  randomSeed: 1353050458
   InitialModule:
     serializedVersion: 3
     enabled: 1
