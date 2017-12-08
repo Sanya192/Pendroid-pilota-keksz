@@ -1,4 +1,5 @@
 ﻿/*
+    ==================================================================
     Megvalósított funckiók:
         állítható gravitáció
         szél
@@ -13,6 +14,7 @@
         felhők, amelyek reagálnak a szélre
         pattogás a földön
         ejtőernyő segítség (pályánként egyszer használható fel)
+    =================================================================
  */
 using UnityEngine;
 
