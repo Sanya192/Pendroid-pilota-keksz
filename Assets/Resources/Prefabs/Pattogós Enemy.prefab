@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 114464634985456888}
   - component: {fileID: 198793771641332478}
   - component: {fileID: 199564470660440516}
-  - component: {fileID: 60422249272176636}
+  - component: {fileID: 61041555456128230}
+  - component: {fileID: 61518496301112660}
   m_Layer: 0
   m_Name: "Pattog\xF3s Enemy"
   m_TagString: Enemy
@@ -38,14 +39,39 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478002293869126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.78, y: 0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.87, y: 0.69, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60422249272176636
-PolygonCollider2D:
+--- !u!61 &61041555456128230
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478002293869126}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7, y: 0.7}
+    newSize: {x: 3.84, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7}
+  m_EdgeRadius: 0
+--- !u!61 &61518496301112660
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -60,24 +86,15 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.0182683, y: 2.065131}
+    oldSize: {x: 0.7, y: 0.7}
     newSize: {x: 3.84, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 1
-  m_Points:
-    m_Paths:
-    - - {x: -0.52, y: 1.07}
-      - {x: -1.53, y: 0.19}
-      - {x: -1.54, y: -0.38}
-      - {x: -0.9531374, y: -0.68}
-      - {x: -0.39, y: -0.9}
-      - {x: 0.04, y: -1.11}
-      - {x: 0.92, y: -0.7}
-      - {x: 1.47, y: -0.41}
-      - {x: 1.51, y: 0.18}
-      - {x: 0.55, y: 1.0325655}
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7}
+  m_EdgeRadius: 0
 --- !u!114 &114464634985456888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,7 +166,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 202874912
+  randomSeed: -2039461003
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3492,9 +3509,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1684647085
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 52fd08b93f3c8b0438e5c2330cecd40d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9d77cbca5c6d8a4daccaa8c364efdc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
