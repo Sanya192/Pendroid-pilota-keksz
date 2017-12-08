@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
-[RequireComponent (typeof(BoxCollider2D))]
+//[RequireComponent (typeof(BoxCollider2D))]
 public class Target : MonoBehaviour {
 
     public static bool gameover = false;

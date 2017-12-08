@@ -21,12 +21,12 @@ GameObject:
   - component: {fileID: 4082023069646546}
   - component: {fileID: 212656298282939734}
   - component: {fileID: 114464634985456888}
-  - component: {fileID: 61235145195990642}
   - component: {fileID: 198793771641332478}
   - component: {fileID: 199564470660440516}
+  - component: {fileID: 60348398882476674}
   m_Layer: 0
   m_Name: DONT HIT HIM
-  m_TagString: Enemy
+  m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,14 +38,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478002293869126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.6469, y: 0.66267145, z: 0}
+  m_LocalPosition: {x: 7.26, y: -3.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61235145195990642
-BoxCollider2D:
+--- !u!60 &60348398882476674
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -56,19 +56,28 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.84, y: 1.28}
+    oldSize: {x: 3.1771247, y: 2.065131}
     newSize: {x: 3.84, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.84, y: 1.28}
-  m_EdgeRadius: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: -0.52, y: 1.07}
+      - {x: -1.53, y: 0.19}
+      - {x: -1.54, y: -0.38}
+      - {x: -0.9531374, y: -0.68}
+      - {x: -0.39, y: -0.9}
+      - {x: 0.04, y: -1.11}
+      - {x: 0.92, y: -0.7}
+      - {x: 1.47, y: -0.41}
+      - {x: 1.51, y: 0.18}
+      - {x: 0.55, y: 1.0325655}
 --- !u!114 &114464634985456888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,7 +149,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1885158389
+  randomSeed: -1535452029
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3485,8 +3494,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300018, guid: 5b32c2d36abe44540bed74c1f787033b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300004, guid: 52fd08b93f3c8b0438e5c2330cecd40d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

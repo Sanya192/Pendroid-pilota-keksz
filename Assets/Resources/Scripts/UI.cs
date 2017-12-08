@@ -11,6 +11,7 @@ public class UI : MonoBehaviour {
     static Slider windSlider;
     static Button parachuteBtn;
     static GameObject Pause;
+    static Launcher Launcher;
     // Use this for initialization
     void Start() {
         var sliders = FindObjectsOfType<Slider>();
@@ -23,6 +24,7 @@ public class UI : MonoBehaviour {
         parachuteBtn.onClick.AddListener(delegate { UseParachute(); });
         Pause = GameObject.Find("Pause");
         Pause.SetActive(false);
+        Launcher = GameObject.Find("Launcher").GetComponent<Launcher>();
         //  Invoke("InvertAllMaterialColors", 0.01f);
     }
     void Update(){
@@ -79,10 +81,12 @@ public class UI : MonoBehaviour {
         if (Time.timeScale == 1) {
             Pause.SetActive(true);
             Time.timeScale = 0;
+            Launcher.enabled = false;
         }
         else {
             Pause.SetActive(false);
             Time.timeScale = 1;
+            Launcher.enabled = true;
         }
     }
 }
