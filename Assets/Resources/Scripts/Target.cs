@@ -6,12 +6,11 @@ using UnityEngine.SceneManagement;
 //[RequireComponent (typeof(BoxCollider2D))]
 public class Target : MonoBehaviour {
 
-    public static bool gameover = false;
-    public static bool victory = false;
+   
 
     // Use this for initialization
     void Start () {
-         victory = false;
+        
     }
 	
 	// Update is called once per frame
@@ -29,16 +28,16 @@ public class Target : MonoBehaviour {
     IEnumerator Example(GameObject gameObject)
     {
         if (gameObject.tag == "Ally") {
-           gameover = true;
+           UI.gameover = true;
         }
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !gameover)
-            victory = true;
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !UI.gameover)
+            UI.victory = true;
         yield return new WaitForSeconds(1.5f);
         if (gameObject.tag == "Ally")
             SceneManager.LoadScene("game_over");
 
         Destroy(gameObject);
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !gameover) {
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !UI.gameover) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
        /* if(victory)

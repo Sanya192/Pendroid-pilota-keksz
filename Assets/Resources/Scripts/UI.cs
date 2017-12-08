@@ -12,6 +12,8 @@ public class UI : MonoBehaviour {
     static Button parachuteBtn;
     static GameObject Pause;
     static Launcher Launcher;
+    public static bool gameover = false;
+    public static bool victory = false;
     // Use this for initialization
     void Start() {
         var sliders = FindObjectsOfType<Slider>();
@@ -24,6 +26,8 @@ public class UI : MonoBehaviour {
         parachuteBtn.onClick.AddListener(delegate { UseParachute(); });
         Pause = GameObject.Find("Pause");
         Pause.SetActive(false);
+        UI.victory = false;
+        gameover = false;
         Launcher = GameObject.Find("Launcher").GetComponent<Launcher>();
         GravityNormalize();
         //  Invoke("InvertAllMaterialColors", 0.01f);
@@ -77,7 +81,7 @@ public class UI : MonoBehaviour {
             }
         }
     }
-    public  void TriggerGameOver(){
+    public  void Triggergameover(){
         SceneManager.LoadScene("game_over");
     }
     public  void ToMainMenu(){
