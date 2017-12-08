@@ -26,8 +26,9 @@ public class UI : MonoBehaviour {
         parachuteBtn.onClick.AddListener(delegate { UseParachute(); });
         Pause = GameObject.Find("Pause");
         Pause.SetActive(false);
-        UI.victory = false;
+        victory = false;
         gameover = false;
+        Time.timeScale = 1.0f;
         Launcher = GameObject.Find("Launcher").GetComponent<Launcher>();
         GravityNormalize();
         //  Invoke("InvertAllMaterialColors", 0.01f);
