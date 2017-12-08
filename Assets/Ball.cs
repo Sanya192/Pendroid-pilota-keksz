@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour {
     private Rigidbody2D rigidBody;
     private CircleCollider2D circleCollider;
     public SpriteRenderer spriteRenderer;
+
+    public GameObject parachutePrefab;
     public bool last;
     public bool physicsEnabled = true;
 
@@ -20,6 +22,13 @@ public class Ball : MonoBehaviour {
         circleCollider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidBody.drag = 0.5f;
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update() {
+
     }
 
     /// <summary>
@@ -60,6 +69,8 @@ public class Ball : MonoBehaviour {
     }
 
     public void UseParachute() {
-        rigidBody.drag = 20;
+        GameObject parachuteClone = Instantiate(parachutePrefab, gameObject.transform.position, Quaternion.identity);
+        parachuteClone.gameObject.transform.parent = gameObject.transform;
+        rigidBody.drag = 20f;
     }
 }
