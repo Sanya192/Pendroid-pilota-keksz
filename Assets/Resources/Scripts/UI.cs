@@ -25,6 +25,7 @@ public class UI : MonoBehaviour {
         Pause = GameObject.Find("Pause");
         Pause.SetActive(false);
         Launcher = GameObject.Find("Launcher").GetComponent<Launcher>();
+        GravityNormalize();
         //  Invoke("InvertAllMaterialColors", 0.01f);
     }
     void Update(){
@@ -39,6 +40,17 @@ public class UI : MonoBehaviour {
             if(!ball[i].GetComponent<Ball>().physicsEnabled)
             ball[i].GetComponent<Rigidbody2D>().Sleep();
         }
+
+    }
+    void GravityNormalize()
+    {
+        var ball = GameObject.FindGameObjectsWithTag("Ball");
+        Physics2D.gravity = new Vector2(0, -9.8F);
+        for (int i = 0; i < ball.Length; i++) {
+            if (!ball[i].GetComponent<Ball>().physicsEnabled)
+                ball[i].GetComponent<Rigidbody2D>().Sleep();
+        }
+
     }
     void WindChange() {
         var windObject = GameObject.Find("WindSimulator").GetComponent<Wind>();
