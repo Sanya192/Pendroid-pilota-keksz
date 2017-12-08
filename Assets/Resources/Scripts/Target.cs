@@ -41,5 +41,7 @@ public class Target : MonoBehaviour {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !gameover) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
+       /* if(victory)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);*/
     }
 }
