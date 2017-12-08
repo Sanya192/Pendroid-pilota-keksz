@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 198001668134257562}
   - component: {fileID: 199843780434854304}
   - component: {fileID: 61968065900068490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Normal Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200542143791590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.79, y: 0.23, z: 0}
+  m_LocalPosition: {x: 4.34, y: -0.53, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -140,7 +140,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1757120245
+  randomSeed: 1418668734
   InitialModule:
     serializedVersion: 3
     enabled: 1
