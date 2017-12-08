@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114602569673166068}
   - component: {fileID: 198001668134257562}
   - component: {fileID: 199843780434854304}
-  - component: {fileID: 61754984476530772}
+  - component: {fileID: 61968065900068490}
   m_Layer: 0
   m_Name: Normal Enemy
   m_TagString: Enemy
@@ -39,12 +39,12 @@ Transform:
   m_GameObject: {fileID: 1200542143791590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.79, y: 0.23, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61754984476530772
+--- !u!61 &61968065900068490
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -65,7 +65,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 1
+  m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
@@ -140,7 +140,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 953838674
+  randomSeed: -1757120245
   InitialModule:
     serializedVersion: 3
     enabled: 1
