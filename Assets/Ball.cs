@@ -14,6 +14,7 @@
         felhők, amelyek reagálnak a szélre
         pattogás a földön
         ejtőernyő segítség (pályánként egyszer használható fel)
+        mindegyik pálya kijátszható.
     =================================================================
  */
 using UnityEngine;
