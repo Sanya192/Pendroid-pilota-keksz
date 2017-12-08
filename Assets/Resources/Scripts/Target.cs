@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class Target : MonoBehaviour {
 
     public static bool gameover = false;
-	// Use this for initialization
-	void Start () {
+    public static bool victory = false;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -27,9 +29,10 @@ public class Target : MonoBehaviour {
     IEnumerator Example(GameObject gameObject)
     {
         if (gameObject.tag == "Ally") {
-            Debug.Log("ANYÁD");
            gameover = true;
         }
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !gameover)
+            victory = true;
         yield return new WaitForSeconds(1.5f);
         if (gameObject.tag == "Ally")
             SceneManager.LoadScene("game_over");
