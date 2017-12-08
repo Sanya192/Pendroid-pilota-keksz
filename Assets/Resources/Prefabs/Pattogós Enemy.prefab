@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 199564470660440516}
   - component: {fileID: 61041555456128230}
   - component: {fileID: 61518496301112660}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "Pattog\xF3s Enemy"
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2039461003
+  randomSeed: -1783451245
   InitialModule:
     serializedVersion: 3
     enabled: 1
