@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+//Yeah BITCH BACK IN CODE YEAH JUST ONE TO COMMIT 1.0+
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
