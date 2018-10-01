@@ -125,4 +125,9 @@ public class UI : MonoBehaviour {
             Launcher.enabled = true;
         }
     }
+    public static void Reset() {
+        Debug.Log("anyád0");
+        victory = false;
+        gameover = false;
+    }
 }

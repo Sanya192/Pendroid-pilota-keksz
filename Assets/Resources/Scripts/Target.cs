@@ -28,16 +28,19 @@ public class Target : MonoBehaviour {
     IEnumerator Example(GameObject gameObject)
     {
         if (gameObject.tag == "Ally") {
-           UI.gameover = true;
+            UI.gameover = true;
+
         }
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !UI.gameover)
             UI.victory = true;
         yield return new WaitForSeconds(1.5f);
-        if (gameObject.tag == "Ally")
+        if (gameObject.tag == "Ally") {
             SceneManager.LoadScene("game_over");
-
+          //  UI.Reset();
+        }
         Destroy(gameObject);
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && !UI.gameover) {
+            Debug.Log(SceneManager.GetActiveScene());
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
        /* if(victory)
