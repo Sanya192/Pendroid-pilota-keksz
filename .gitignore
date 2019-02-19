@@ -36,3 +36,5 @@ Thumbs.db
 .vs/Pendroid-pilota-keksz/v15/Server/sqlite3/storage.ide-shm
 .vs/Pendroid-pilota-keksz/v15/Server/sqlite3/storage.ide
 builds/
+
+build/
