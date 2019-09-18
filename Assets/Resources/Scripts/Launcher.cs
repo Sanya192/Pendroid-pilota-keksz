@@ -8,7 +8,7 @@ public class Launcher : MonoBehaviour {
     [Tooltip("The prefab for the ball being launched")]
     [SerializeField]
     private GameObject ballPrefab;
-
+    private LineRenderer linerender;
     /// <summary>
     /// The balls in order of launch. The first one is at index 0
     /// </summary>
@@ -68,6 +68,7 @@ public class Launcher : MonoBehaviour {
         }
         balls[balls.Length - 1].last = true;
         maxLaunchRadius = Camera.main.pixelWidth * maxLaunchRadiusPercent;
+        linerender = balls[currBallIndex].GetComponent<LineRenderer>();
     }
 
     private void OnDrawGizmos() {
@@ -106,6 +107,25 @@ public class Launcher : MonoBehaviour {
             } else {
                 touchEndPos = mousePosition;
             }
+            //here comes the drawing magic
+
+            
+            /*if (!linerender.enabled)
+            {
+                linerender.enabled = true;
+            }*/
+            // in which way
+            Vector3 launchVector = launcherScreenPos - touchEndPos;
+            // whith what power
+            float launchPower = launchVector.magnitude / maxLaunchRadius * maxLaunchSpeed;
+            Vector3[] positions = new Vector3[3000];
+            //linerender.SetPositions(positions);
+            for (int i = 0; i < 3000; i++)
+            {
+                positions[i] = PositonafterThrown(launchVector.normalized * launchPower,i/120);
+            }
+            linerender.
+            linerender.SetPositions(positions);
         }
 
         // launch the ball
@@ -190,5 +210,12 @@ public class Launcher : MonoBehaviour {
             }
         }
     }
+    private Vector2 PositonafterThrown(Vector2 launchVector,float secondsPassed)
+    {
+        Vector2 result = new Vector2();
+        result.x = launchVector.magnitude * Mathf.Cos(Vector2.Angle(launchVector, Vector2.right)) * secondsPassed;
+        result.y = launchVector.magnitude * Mathf.Sin(Vector2.Angle(launchVector, Vector2.right)) * secondsPassed + Physics2D.gravity.y / 2 * Mathf.Pow(secondsPassed,2);
 
+        return result;
+    }
 }
