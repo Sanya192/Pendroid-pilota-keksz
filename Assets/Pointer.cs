@@ -6,7 +6,7 @@ public class Pointer : MonoBehaviour {
 
     // Use this for initialization
     public static SpriteRenderer Point;
-	void Start () {
+	void Awake () {
         Point = GetComponent<SpriteRenderer>();
 	}
 	

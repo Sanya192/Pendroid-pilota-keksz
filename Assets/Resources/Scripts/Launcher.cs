@@ -13,7 +13,7 @@ public class Launcher    : MonoBehaviour {
     private SpriteRenderer spriterender;
     private Controller controller;
     private Vector2 enterPoint;
-    public float lauchdist=150;
+    public float lauchdist=-70;
     public float enddist = 0;
     public GameObject pointer;
     /// <summary>
@@ -79,6 +79,7 @@ public class Launcher    : MonoBehaviour {
         //very bad practice. But Unity now buggy which is a worse practice.
         spriterender = Pointer.Point;
         controller = new Controller(25);
+        pointer = GameObject.FindGameObjectWithTag("pointer");
     }
 
     private void OnDrawGizmos() {
@@ -152,31 +153,40 @@ public class Launcher    : MonoBehaviour {
             isDragging = false;
         }
 #endif
-        Vector currpos = new Vector();
+        Vector currpos = new Vector(0,0,0);
 #if LEAPMOTION
         //Vector2 mousePosition = Input.mousePosition;
 
         if (controller.Frame(0).Hands.Count>0)
         {
             //Debug.Log(controller.Frame(0).Hand(0).Finger(1).Type);
-             currpos = controller.Frame(0).Hand(0).Fingers[0].TipPosition;//.Finger(0).TipPosition;
+            currpos =
+               controller.
+               Frame(0)
+               .Hands[0]
+               //.Fingers[1].TipPosition;
+            .PalmPosition;//.Finger(0).TipPosition;
+            Debug.Log(currpos.z);
         }
         var currpos2 = new Vector2(currpos.x, currpos.y);
 
         // only start pulling if the ball was touched
-        if (currpos.z>lauchdist&&!isDragging)
+        // if (currpos.z<lauchdist&&!isDragging)
+        if(controller.Frame(0).Hands.Count > 0&&controller.
+               Frame(0)
+               .Hands[0].GrabAngle>2.4&&!isDragging)
         {
            
-                isDragging = true;
+            isDragging = true;
             enterPoint = new Vector2(currpos.x, currpos.y);
         }
         if (isDragging)
         {
-            spriterender.enabled = true;
+            Pointer.Point.enabled = true;
         }
         else
         {
-            spriterender.enabled = false;
+            Pointer.Point.enabled = false;
 
 
 
@@ -185,6 +195,8 @@ public class Launcher    : MonoBehaviour {
         {
             // get how much we moved from launcher on screen
             Vector2 mouseDelta = currpos2 - enterPoint;
+            mouseDelta /= 10;
+            pointer.transform.localPosition = mouseDelta;
 
             float dist = mouseDelta.magnitude;
 
@@ -218,15 +230,22 @@ public class Launcher    : MonoBehaviour {
              linerender.SetPositions(positions);*/
 
         }
+        else
+        {
+            pointer.transform.localPosition = new Vector2(0,0);
+
+        }
 
         // launch the ball
-        if ( isDragging&&currpos.z>enddist )
+        if ( isDragging&& controller.
+               Frame(0)
+               .Hands[0].GrabAngle <1)
         {
             // in which way
-            Vector3 launchVector = launcherScreenPos - touchEndPos;
+            Vector3 launchVector = enterPoint - touchEndPos;
             // whith what power
             float launchPower = launchVector.magnitude / maxLaunchRadius * maxLaunchSpeed;
-
+            launchPower *= 2.99999f;
             LaunchCurrentBall(launchVector.normalized * launchPower);
 
             // stop the launching process

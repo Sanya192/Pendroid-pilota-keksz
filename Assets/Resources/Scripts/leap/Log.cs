@@ -15,10 +15,10 @@ public class Log : MonoBehaviour {
 	void Start () {
         controller = new Controller(25);
         first = new Vector3();
-        firstha = new TextMeshProUGUI[3];
+        firstha = new TextMeshProUGUI[4];
         
         var temp = GameObject.FindGameObjectsWithTag("txt");
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             firstha[i] = temp[i].GetComponent<TextMeshProUGUI>();
         }
@@ -31,12 +31,12 @@ public class Log : MonoBehaviour {
 
         if (controller.Frame(0).Hands.Count>0&& controller.Frame(0).Hands[0].Fingers.Count>0)
         {
-            var temp = controller.Frame(0).Hands[0].Fingers[1].TipPosition;
+            var temp = controller.Frame(0).Hands[0].PalmPosition;
             first = new Vector3(temp.x, temp.y, temp.z);
             firstha[0].text = temp.z.ToString();
             firstha[1].text = temp.y.ToString();
             firstha[2].text = temp.x.ToString();
-
+            firstha[3].text = controller.Frame(0).Hands[0].GrabAngle.ToString();
             /*
             Debug.Log(controller.Frame(0).Hands[0].Fingers[0].TipPosition);
             Debug.Log(controller.Frame(0).Hands[0].Fingers[0].TipPosition.y);
