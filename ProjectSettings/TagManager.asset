@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Ally
   - Cloud
+  - txt
+  - Logger
+  - pointer
   layers:
   - Default
   - TransparentFX

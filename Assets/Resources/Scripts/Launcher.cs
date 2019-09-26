@@ -1,14 +1,21 @@
-﻿using UnityEngine;
-
-public class Launcher : MonoBehaviour {
+﻿using Leap;
+using UnityEngine;
+public class Launcher    : MonoBehaviour {
 
     /// <summary>
     /// Prefb for the ball being launched
     /// </summary>
+    
     [Tooltip("The prefab for the ball being launched")]
     [SerializeField]
     private GameObject ballPrefab;
     private LineRenderer linerender;
+    private SpriteRenderer spriterender;
+    private Controller controller;
+    private Vector2 enterPoint;
+    public float lauchdist=150;
+    public float enddist = 0;
+    public GameObject pointer;
     /// <summary>
     /// The balls in order of launch. The first one is at index 0
     /// </summary>
@@ -69,6 +76,9 @@ public class Launcher : MonoBehaviour {
         balls[balls.Length - 1].last = true;
         maxLaunchRadius = Camera.main.pixelWidth * maxLaunchRadiusPercent;
         linerender = balls[currBallIndex].GetComponent<LineRenderer>();
+        //very bad practice. But Unity now buggy which is a worse practice.
+        spriterender = Pointer.Point;
+        controller = new Controller(25);
     }
 
     private void OnDrawGizmos() {
@@ -81,7 +91,7 @@ public class Launcher : MonoBehaviour {
     private void Update() {
         Vector2 launcherScreenPos = Camera.main.WorldToScreenPoint(transform.position);
 
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if (UNITY_EDITOR || UNITY_STANDALONE) && !LEAPMOTION
         Vector2 mousePosition = Input.mousePosition;
 
         // only start pulling if the ball was touched
@@ -115,7 +125,7 @@ public class Launcher : MonoBehaviour {
                 linerender.enabled = true;
             }*/
             // in which way
-            Vector3 launchVector = launcherScreenPos - touchEndPos;
+           /* Vector3 launchVector = launcherScreenPos - touchEndPos;
             // whith what power
             float launchPower = launchVector.magnitude / maxLaunchRadius * maxLaunchSpeed;
             Vector3[] positions = new Vector3[3000];
@@ -124,8 +134,9 @@ public class Launcher : MonoBehaviour {
             {
                 positions[i] = PositonafterThrown(launchVector.normalized * launchPower,i/120);
             }
-            linerender.
-            linerender.SetPositions(positions);
+            //linerender.
+            linerender.SetPositions(positions);*/
+
         }
 
         // launch the ball
@@ -140,6 +151,88 @@ public class Launcher : MonoBehaviour {
             // stop the launching process
             isDragging = false;
         }
+#endif
+        Vector currpos = new Vector();
+#if LEAPMOTION
+        //Vector2 mousePosition = Input.mousePosition;
+
+        if (controller.Frame(0).Hands.Count>0)
+        {
+            //Debug.Log(controller.Frame(0).Hand(0).Finger(1).Type);
+             currpos = controller.Frame(0).Hand(0).Fingers[0].TipPosition;//.Finger(0).TipPosition;
+        }
+        var currpos2 = new Vector2(currpos.x, currpos.y);
+
+        // only start pulling if the ball was touched
+        if (currpos.z>lauchdist&&!isDragging)
+        {
+           
+                isDragging = true;
+            enterPoint = new Vector2(currpos.x, currpos.y);
+        }
+        if (isDragging)
+        {
+            spriterender.enabled = true;
+        }
+        else
+        {
+            spriterender.enabled = false;
+
+
+
+        }
+        if (isDragging)
+        {
+            // get how much we moved from launcher on screen
+            Vector2 mouseDelta = currpos2 - enterPoint;
+
+            float dist = mouseDelta.magnitude;
+
+            // we are too far away from the launcher -> shrink it to the max
+            if (dist > maxLaunchRadius)
+            {
+                touchEndPos = launcherScreenPos + mouseDelta * (maxLaunchRadius / dist);
+            }
+            else
+            {
+                touchEndPos = currpos2;
+            }
+            //here comes the drawing magic
+
+
+            /*if (!linerender.enabled)
+            {
+                linerender.enabled = true;
+            }*/
+            // in which way
+            /* Vector3 launchVector = launcherScreenPos - touchEndPos;
+             // whith what power
+             float launchPower = launchVector.magnitude / maxLaunchRadius * maxLaunchSpeed;
+             Vector3[] positions = new Vector3[3000];
+             //linerender.SetPositions(positions);
+             for (int i = 0; i < 3000; i++)
+             {
+                 positions[i] = PositonafterThrown(launchVector.normalized * launchPower,i/120);
+             }
+             //linerender.
+             linerender.SetPositions(positions);*/
+
+        }
+
+        // launch the ball
+        if ( isDragging&&currpos.z>enddist )
+        {
+            // in which way
+            Vector3 launchVector = launcherScreenPos - touchEndPos;
+            // whith what power
+            float launchPower = launchVector.magnitude / maxLaunchRadius * maxLaunchSpeed;
+
+            LaunchCurrentBall(launchVector.normalized * launchPower);
+
+            // stop the launching process
+            isDragging = false;
+        }
+
 #endif
 #if UNITY_ANDROID
         if (Input.touchCount > 0) { 
