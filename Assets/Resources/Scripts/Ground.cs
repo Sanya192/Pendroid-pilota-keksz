@@ -15,7 +15,8 @@ public class Ground : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll){
        if( coll.gameObject.GetComponent<Ball>().last&&!UI.victory) {
 
-            SceneManager.LoadScene("game_over");
+            UI.Triggergameover();
+            //SceneManager.LoadScene("game_over");
             //UI.Reset();
 
         }

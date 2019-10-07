@@ -35,9 +35,11 @@ public class UI : MonoBehaviour {
     static Launcher Launcher;
     public static bool gameover = false;
     public static bool victory = false;
+    public static int deathPos;
     // Use this for initialization
     void Start() {
         var sliders = FindObjectsOfType<Slider>();
+        /*
         gravitySlider = sliders.First(P => P.name == "GravitySlider");
         windSlider = sliders.First(P => P.name == "WindSlider");
         gravitySlider.onValueChanged.AddListener(delegate { GravityChange(); });
@@ -46,17 +48,25 @@ public class UI : MonoBehaviour {
         parachuteBtn = btns.First(p => p.name == "ParachuteButton");
         parachuteBtn.onClick.AddListener(delegate { UseParachute(); });
         Pause = GameObject.Find("Pause");
-        Pause.SetActive(false);
+        Pause.SetActive(false);*/
         victory = false;
         gameover = false;
         Time.timeScale = 1.0f;
-        Launcher = GameObject.Find("Launcher").GetComponent<Launcher>();
+        //Launcher = GameObject.Find("Launcher").GetComponent<Launcher>();
         GravityNormalize();
         //  Invoke("InvertAllMaterialColors", 0.01f);
     }
     void Update(){
         if (Input.GetButtonDown("Pause")){
             TriggerPause();
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     void GravityChange() {
@@ -103,7 +113,9 @@ public class UI : MonoBehaviour {
             }
         }
     }
-    public  void Triggergameover(){
+    public static  void Triggergameover(){
+        deathPos = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(deathPos);
         SceneManager.LoadScene("game_over");
     }
     public  void ToMainMenu(){
@@ -126,7 +138,7 @@ public class UI : MonoBehaviour {
         }
     }
     public static void Reset() {
-        Debug.Log("anyád0");
+        //Debug.Log("anyád0");
         victory = false;
         gameover = false;
     }

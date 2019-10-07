@@ -5,54 +5,51 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Menu/splash.unity
     guid: 7a628ec6c0d55034aa7290fb9962e0f4
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Menu/menu.unity
     guid: 8874205a7cc390f47ac7a835ffef4e06
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Menu/levels.unity
     guid: a7c80ee4053bd334c827d398c86ebe74
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Menu/about.unity
     guid: 834879838bcecf747885ceafac0e8f66
-  - enabled: 1
-    path: Assets/_Scenes/Menu/game_over.unity
-    guid: 9bd35269870b29b4698f80b31e805060
-  - enabled: 1
-    path: Assets/_Scenes/levels/level0.unity
-    guid: 98be3c9f19b0b4f41b0052f1ed685f53
-  - enabled: 1
-    path: Assets/_Scenes/levels/level1.unity
-    guid: ca8807238e4945b4a8dd08017aa3929a
-  - enabled: 1
-    path: Assets/_Scenes/levels/level2.unity
-    guid: 6185c559f5b849444905b6116b0fe0a9
-  - enabled: 1
-    path: Assets/_Scenes/levels/level3.unity
-    guid: c697b0f3fc2e6904dbee578f1b9477d2
-  - enabled: 1
-    path: Assets/_Scenes/levels/level4.unity
-    guid: bfa6d97f0f0a6c143ac10a18bd17dff1
-  - enabled: 1
-    path: Assets/_Scenes/levels/level5.unity
-    guid: 9e46ca5eb6df53b41a155d90cd35cb42
-  - enabled: 1
-    path: Assets/_Scenes/levels/level6.unity
-    guid: 5ece9eba697f75344babec378163e7a7
-  - enabled: 1
-    path: Assets/_Scenes/levels/level7.unity
-    guid: e29f6c42f86d67046b37af38feb7de7d
-  - enabled: 1
-    path: Assets/_Scenes/levels/level8.unity
-    guid: 51eaf203a33d6574cad311f26e8be048
-  - enabled: 1
-    path: Assets/_Scenes/levels/level9.unity
-    guid: 8bbb971b40f38a74aa59fb5b92f0e4e8
-  - enabled: 1
+  - enabled: 0
+    path: Assets/_Scenes/levels_friend/elevel0.unity
+    guid: 4f3adf0b03634cb438ddf3d31e916682
+  - enabled: 0
     path: Assets/_Scenes/levels/level10.unity
     guid: 6f85092eac4de404e93b90ff202b85cd
   - enabled: 1
+    path: Assets/_Scenes/levels_friend/elevel1.unity
+    guid: ad82e1a282175824293705be823aaa9f
+  - enabled: 1
+    path: Assets/_Scenes/levels_friend/elevel2.unity
+    guid: b0c34d8a95854bb49806ab61c388ebe4
+  - enabled: 1
+    path: Assets/_Scenes/levels_friend/elevel3.unity
+    guid: 8295a0f889ed7f9438e5dc506dddcc2a
+  - enabled: 1
+    path: Assets/_Scenes/levels_friend/elevel4.unity
+    guid: 11890b9dc59303a45848150b876074c0
+  - enabled: 1
+    path: Assets/_Scenes/levels_friend/level5.unity
+    guid: 9e46ca5eb6df53b41a155d90cd35cb42
+  - enabled: 1
+    path: Assets/_Scenes/levels_friend/level6.unity
+    guid: 5ece9eba697f75344babec378163e7a7
+  - enabled: 1
+    path: Assets/_Scenes/levels_friend/level7.unity
+    guid: e29f6c42f86d67046b37af38feb7de7d
+  - enabled: 1
+    path: Assets/_Scenes/Menu/goto.unity
+    guid: 1cf54dccb2b01a54a8d90008580436e4
+  - enabled: 0
     path: Assets/_Scenes/levels/endgame.unity
     guid: 091e55b65967de649b219de4b111f0ac
+  - enabled: 1
+    path: Assets/_Scenes/Menu/game_over.unity
+    guid: 9bd35269870b29b4698f80b31e805060

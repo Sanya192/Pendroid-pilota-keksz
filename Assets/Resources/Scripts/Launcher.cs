@@ -52,7 +52,7 @@ public class Launcher    : MonoBehaviour {
     private float maxLaunchSpeed = 100f;
 
     [SerializeField]
-    private float maxLaunchRadiusPercent = 0.1f;
+    private float maxLaunchRadiusPercent = 0.05f;
     /// <summary>
     /// Radius of max launch strength in pixels
     /// </summary>
@@ -166,7 +166,7 @@ public class Launcher    : MonoBehaviour {
                .Hands[0]
                //.Fingers[1].TipPosition;
             .PalmPosition;//.Finger(0).TipPosition;
-            Debug.Log(currpos.z);
+           // Debug.Log(currpos.z);
         }
         var currpos2 = new Vector2(currpos.x, currpos.y);
 
@@ -174,7 +174,7 @@ public class Launcher    : MonoBehaviour {
         // if (currpos.z<lauchdist&&!isDragging)
         if(controller.Frame(0).Hands.Count > 0&&controller.
                Frame(0)
-               .Hands[0].GrabAngle>2.4&&!isDragging)
+               .Hands[0].GrabAngle>3.01f&&!isDragging)
         {
            
             isDragging = true;
@@ -195,7 +195,8 @@ public class Launcher    : MonoBehaviour {
         {
             // get how much we moved from launcher on screen
             Vector2 mouseDelta = currpos2 - enterPoint;
-            mouseDelta /= 10;
+            mouseDelta /= 20;
+         
             pointer.transform.localPosition = mouseDelta;
 
             float dist = mouseDelta.magnitude;
@@ -237,15 +238,18 @@ public class Launcher    : MonoBehaviour {
         }
 
         // launch the ball
-        if ( isDragging&& controller.
+        if (controller.
                Frame(0)
-               .Hands[0].GrabAngle <1)
+               .Hands.Count>0
+               &&isDragging && controller.
+               Frame(0)
+               .Hands[0].GrabAngle <.67f)
         {
             // in which way
             Vector3 launchVector = enterPoint - touchEndPos;
             // whith what power
             float launchPower = launchVector.magnitude / maxLaunchRadius * maxLaunchSpeed;
-            launchPower *= 2.99999f;
+            launchPower *= 1.5f;
             LaunchCurrentBall(launchVector.normalized * launchPower);
 
             // stop the launching process
